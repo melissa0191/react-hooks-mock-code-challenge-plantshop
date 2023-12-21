@@ -1,19 +1,19 @@
-import React,{ useState,useEffect } from "react"; 
+import React,{ useState,useEffect } from "react"; //1 we use the state here because we gonna be passing the plant as a prop to the plant list, we gonna grab the data in the search imput
 import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 const Api = "http://localhost:6001/plants";
 
 function PlantPage() {
-  const [plants, setPlants] = useState([]); 
+  const [plants, setPlants] = useState([]); //2, incial value will be an empty array
   const [searchTerm, setSearchTerm] = useState("");
-  useEffect(() => {
-    fetch(Api)
-    .then((res) => res.json())
+  useEffect(() => {//3 first argument call back function, second argument dependancy array
+    fetch(Api) //4
+    .then((res) => res.json())//5
 
-    .then(setPlants)
+    .then(setPlants)//6
   }, []);
-console.log(plants);
+console.log(plants);//7
   const onHandlingSubmit = (newPlant) =>{
     setPlants([...plants, newPlant])
   }
@@ -32,7 +32,7 @@ console.log(plants);
       searchTerm={searchTerm}
       onHandleSearch={onHandleSearch}
       />
-      <PlantList  plants ={displayedPlants}/>
+      <PlantList  plants ={displayedPlants}/> //8sending the plant as a prop
     </main>
   );
 }

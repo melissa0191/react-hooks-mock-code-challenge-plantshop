@@ -1,14 +1,14 @@
-import React,{useState}from "react";
+import React,{useState}from "react"; //19 delivarable 2
 
 function NewPlantForm({Api, onHandlingSubmit}) {
-  const inicialForm = {
+  const inicialForm = { //21
     name: "",
     image: "",
     price: 0
   }
-  const[formData, setFormData] = useState(inicialForm)
-  const handleChange = (e) => {
-    const {name,value} = e.target
+  const[formData, setFormData] = useState(inicialForm) //20
+  const handleChange = (e) => { //23
+    const {name,value} = e.target//29
   setFormData ({...formData, [name]: value})
   }
 const handleSudmit = (e) => {
@@ -37,23 +37,23 @@ const onHandlingSubmit = (data) =>{
         type="text" 
         name="name" 
         placeholder="Plant name" 
-        value={formData.name} 
-        onChange={handleChange}
+        value={formData.name} //21
+        onChange={handleChange}//22
         />
         <input 
         type="text" 
         name="image" 
         placeholder="Image URL" 
-        value={formData.image} 
-        onChange={handleChange}
+        value={formData.image} //24
+        onChange={handleChange}//25
         />
         <input 
         type="number" 
         name="price" 
         step="0.01" 
         placeholder="Price" 
-        value={formData.price} 
-        onChange={handleChange}
+        value={formData.price} //26
+        onChange={handleChange}//27
         />
         <button type="submit">Add Plant</button>
       </form>
